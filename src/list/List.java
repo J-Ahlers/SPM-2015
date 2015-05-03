@@ -17,6 +17,14 @@ public class List<T> {
 		length++;
 	}
 	
+	public void add(List<T> list) {
+		if(list != null) {
+			while(list.hasNext()) {
+				add(list.getNext());
+			}
+		}
+	}
+	
 	public boolean hasNext() {
 		if(isEmpty()) {
 			return false;
