@@ -56,6 +56,19 @@ public class List<T> {
 		}
 	}
 	
+	public int getActualCount() {
+		if(elements == null)
+			return 0;
+		
+		int count = 0;
+		while(hasNext()) {
+			if(getNext() != null)
+				count++;
+		}
+		
+		return count;
+	}
+	
 	public T get(int position) {
 		return elements.get(position);
 	}

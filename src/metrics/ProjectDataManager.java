@@ -7,20 +7,22 @@ public class ProjectDataManager {
 	private List<ProjectData> testdata_4a;
 	private List<ProjectData> actualdata_4a;
 	
+	private List<ProjectData> exercisedata;
+	
 	public ProjectDataManager() {
 		// Table D8
 		this.testdata_4a = new List<ProjectData>();
 		
-		ProjectData p01 = new ProjectData(130, 163, 186);
-		ProjectData p02 = new ProjectData(650, 765, 699);
-		ProjectData p03 = new ProjectData(99, 141, 132);
-		ProjectData p04 = new ProjectData(150, 166, 272);
-		ProjectData p05 = new ProjectData(128, 137, 291);
-		ProjectData p06 = new ProjectData(302, 355, 331);
-		ProjectData p07 = new ProjectData(95, 136, 199);
-		ProjectData p08 = new ProjectData(945, 1206, 1890);
-		ProjectData p09 = new ProjectData(368, 433, 788);
-		ProjectData p10 = new ProjectData(961, 1130, 1601);
+		ProjectData p01 = new ProjectData(130, 163, 186, 0, 0);
+		ProjectData p02 = new ProjectData(650, 765, 699, 0, 0);
+		ProjectData p03 = new ProjectData(99, 141, 132, 0, 0);
+		ProjectData p04 = new ProjectData(150, 166, 272, 0, 0);
+		ProjectData p05 = new ProjectData(128, 137, 291, 0, 0);
+		ProjectData p06 = new ProjectData(302, 355, 331, 0, 0);
+		ProjectData p07 = new ProjectData(95, 136, 199, 0, 0);
+		ProjectData p08 = new ProjectData(945, 1206, 1890, 0, 0);
+		ProjectData p09 = new ProjectData(368, 433, 788, 0, 0);
+		ProjectData p10 = new ProjectData(961, 1130, 1601, 0, 0);
 		
 		this.testdata_4a.add(p01);
 		this.testdata_4a.add(p02);
@@ -36,13 +38,25 @@ public class ProjectDataManager {
 		// Collected Data on Programs 2A, 3A and 4A
 		this.actualdata_4a = new List<ProjectData>();
 		
-		ProjectData a01 = new ProjectData(0, 100, 49);
-		ProjectData a02 = new ProjectData(0, 100, 85);
-		ProjectData a03 = new ProjectData(0, 180, 156);
+		ProjectData ad01 = new ProjectData(null, 100, 49, null, null);
+		ProjectData ad02 = new ProjectData(null, 100, 85, null, null);
+		ProjectData ad03 = new ProjectData(null, 180, 156, null, null);
 		
-		this.actualdata_4a.add(a01);
-		this.actualdata_4a.add(a02);
-		this.actualdata_4a.add(a03);
+		this.actualdata_4a.add(ad01);
+		this.actualdata_4a.add(ad02);
+		this.actualdata_4a.add(ad03);
+		
+		// Collected Data on all programs so far
+		this.exercisedata = new List<ProjectData>();
+		
+		ProjectData a01 = new ProjectData(null, null, null, 57, 108);
+		ProjectData a02 = new ProjectData(null, 100, 49, 120, 80);
+		ProjectData a03 = new ProjectData(null, 100, 85, 67, 95);
+		ProjectData a04 = new ProjectData(137, 180, 156, 200, 190);
+		
+		this.exercisedata.add(a01);
+		this.exercisedata.add(a02);
+		this.exercisedata.add(a03);
 	}
 	
 	public List<ProjectData> getTestdata_4a() {
@@ -51,6 +65,10 @@ public class ProjectDataManager {
 	
 	public List<ProjectData> getActualdata_4a() {
 		return this.actualdata_4a;
-}
+	}
+	
+	public List<ProjectData> getExerciseData() {
+		return this.exercisedata;
+	}
 
 }

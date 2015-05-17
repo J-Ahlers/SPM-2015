@@ -3,69 +3,93 @@ package metrics;
 public class ProjectData {
 
 
-	private int eoloc;
-	private int encloc;
-	private int ancloc;
+	private Integer eoloc;
+	private Integer encloc;
+	private Integer ancloc;
+	private Integer etime;
+	private Integer atime;
 	
 	/**
 	 * 
-	 * param: int eoloc     Estimated Object LOC 
-	 * param: int encloc    Estimated and New and Changed Object LOC 
-	 * param: int ancloc    Actual and New and Changed Object LOC 
+	 * param: Integer eoloc     Estimated Object LOC 
+	 * param: Integer encloc    Estimated and New and Changed Object LOC 
+	 * param: Integer ancloc    Actual and New and Changed Object LOC 
 	 */
-	public ProjectData(int eoloc, int encloc, int ancloc) {
+	public ProjectData(Integer eoloc, Integer encloc, Integer ancloc, Integer etime, Integer atime) {
 			setEOLOC(eoloc);
 			setENCLOC(encloc);
 			setANCLOC(ancloc);
+			setEtime(etime);
+			setAtime(atime);
 	}
 	
 	
 	/**
 	 * 
-	 * param: int eoloc     Estimated Object LOC 
+	 * param: Integer eoloc     Estimated Object LOC 
 	 */
-	public void setEOLOC(int eoloc) {
+	public void setEOLOC(Integer eoloc) {
 			this.eoloc = eoloc;
 	}
 	
 	/**
 	 * 
-	 * return: int eoloc     Estimated Object LOC 
+	 * return: Integer eoloc     Estimated Object LOC 
 	 */
-	public int getEOLOC() {
+	public Integer getEOLOC() {
 			return this.eoloc;
 	}
 	
 	/**
 	 * 
-	 * param: int encloc    Estimated and New and Changed Object LOC 
+	 * param: Integer encloc    Estimated and New and Changed Object LOC 
 	 */
-	public void setENCLOC(int encloc) {
+	public void setENCLOC(Integer encloc) {
 			this.encloc = encloc;
 	}
 	
 	/**
 	 * 
-	 * return: int encloc    Estimated and New and Changed Object LOC 
+	 * return: Integer encloc    Estimated and New and Changed Object LOC 
 	 */
-	public int getENCLOC() {
+	public Integer getENCLOC() {
 			return this.encloc;
 	}
 	
 	/**
 	 * 
-	 * param: int ancloc    Actual and New and Changed Object LOC 
+	 * param: Integer ancloc    Actual and New and Changed Object LOC 
 	 */
-	public void setANCLOC(int ancloc) {
+	public void setANCLOC(Integer ancloc) {
 			this.ancloc = ancloc;
 	}
 	
 	/**
 	 * 
-	 * return: int ancloc    Actual and New and Changed Object LOC 
+	 * return: Integer ancloc    Actual and New and Changed Object LOC 
 	 */
-	public int getANCLOC() {
+	public Integer getANCLOC() {
 			return this.ancloc;
+	}
+
+
+	public Integer getEtime() {
+		return etime;
+	}
+
+
+	public void setEtime(Integer etime) {
+		this.etime = etime;
+	}
+
+
+	public Integer getAtime() {
+		return atime;
+	}
+
+
+	public void setAtime(Integer atime) {
+		this.atime = atime;
 	}
 	
 	
