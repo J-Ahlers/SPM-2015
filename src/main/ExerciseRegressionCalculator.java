@@ -21,6 +21,7 @@ public class ExerciseRegressionCalculator {
 		}
 		RegressionCalculator rcSize = new RegressionCalculator(size);
 		System.out.println("Size: ß0 = " + rcSize.getB0() + " | ß1 = " + rcSize.getB1());
+		System.out.println("Size-range: ß0 = " + getRange(size, 62, rcSize.getB0(), rcSize.getB1()));
 		
 		PairList<Integer> time = new PairList<Integer>();
 		List<Integer> actualTimes = new List<Integer>();
@@ -31,7 +32,7 @@ public class ExerciseRegressionCalculator {
 		}
 		RegressionCalculator rcTime = new RegressionCalculator(time);
 		System.out.println("Time: " + rcTime.getB0() + " | ß1 = " + rcTime.getB1());
-		System.out.println("Time-range: ß0 = " + getRange(time, 137, rcTime.getB0(), rcTime.getB1()));
+		System.out.println("Time-range: ß0 = " + getRange(time, 89, rcTime.getB0(), rcTime.getB1()));
 
 	}
 	
@@ -45,7 +46,7 @@ public class ExerciseRegressionCalculator {
 		while(values.hasNext()) {
 			@SuppressWarnings("unchecked")
 			ValuePair<Integer> n = (ValuePair<Integer>) values.getNext();
-			if(n == null)
+			if(n.getX() == null || n.getY() == null)
 				continue;
 			
 			bottom += (n.getX() - avg.getX()) * (n.getX() - avg.getX());
@@ -61,7 +62,7 @@ public class ExerciseRegressionCalculator {
 		while(values.hasNext()) {
 			@SuppressWarnings("unchecked")
 			ValuePair<Integer> next = (ValuePair<Integer>) values.getNext();
-			if(next.getX() == null && next.getX() == null)
+			if(next.getX() == null || next.getX() == null)
 				continue;
 			double v = next.getY() - b0 - b1*next.getY();
 			sum += v*v;

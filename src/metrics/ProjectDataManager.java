@@ -57,6 +57,7 @@ public class ProjectDataManager {
 		this.exercisedata.add(a01);
 		this.exercisedata.add(a02);
 		this.exercisedata.add(a03);
+		this.exercisedata.add(a04);
 	}
 	
 	public List<ProjectData> getTestdata_4a() {
