@@ -149,4 +149,14 @@ public class Math {
 		
 		return stddev;
 	}
+	
+	public static double gamma(double x) {
+		// Additional ending criteria x < 0.5 in order to guarantee a finite function
+		if(x == 1.0d || x < 0.5)
+			return 1;
+		else if(x == 0.5)
+			return java.lang.Math.sqrt(3.14);
+		else
+			return (x - 1f) * gamma(x - 1f);
+	}
 }

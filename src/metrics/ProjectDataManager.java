@@ -49,15 +49,18 @@ public class ProjectDataManager {
 		// Collected Data on all programs so far
 		this.exercisedata = new List<ProjectData>();
 		
+		// Contructor params new ProjectData(eoloc, encloc, ancloc, etime, atime)
 		ProjectData a01 = new ProjectData(null, null, null, 57, 108);
 		ProjectData a02 = new ProjectData(null, 100, 49, 120, 80);
 		ProjectData a03 = new ProjectData(null, 100, 85, 67, 95);
-		ProjectData a04 = new ProjectData(137, 180, 156, 200, 190);
+		ProjectData a04 = new ProjectData(378, 239, 156, 358, 190);
+		ProjectData a05 = new ProjectData(204, 204, 115, 99, 182);
 		
 		this.exercisedata.add(a01);
 		this.exercisedata.add(a02);
 		this.exercisedata.add(a03);
 		this.exercisedata.add(a04);
+		this.exercisedata.add(a05);
 	}
 	
 	public List<ProjectData> getTestdata_4a() {

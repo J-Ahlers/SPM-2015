@@ -5,7 +5,8 @@ public class SimpsonsRule {
 	private Float x_low;
 	private Float x_high;
 	private float E;
-	private int N = 20;
+	public static final int N = 20;
+	private int currentN;
 	private float offset;
 	private float factor = 1;
 	private Function function;
@@ -15,6 +16,7 @@ public class SimpsonsRule {
 		this.x_low = x_low;
 		this.x_high = x_high;
 		this.E = E;
+		this.currentN = N;
 		adjustBonds();
 	}
 	
@@ -70,13 +72,13 @@ public class SimpsonsRule {
 	
 	private float compute(float oldResult) {
 		float newResult =  function.calculate(x_low);
-		float W = (x_high - x_low) / N;
+		float W = (x_high - x_low) / currentN;
 		
 		if(x_low == x_high) {
 			return 0f;
 		}
 		
-		for(int i = 1; i < N; i++) {
+		for(int i = 1; i < currentN; i++) {
 			if( i % 2 == 0) {
 				newResult += 2f * function.calculate(x_low + i * W);
 			}
@@ -87,7 +89,7 @@ public class SimpsonsRule {
 		
 		newResult += function.calculate(x_high);
 		newResult *= W / 3f;
-		N *= 2f;
+		currentN *= 2f;
 		
 		if(java.lang.Math.abs(newResult - oldResult) < E) {
 			return newResult;
