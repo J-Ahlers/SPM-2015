@@ -5,8 +5,10 @@ import list.PairList;
 import list.ValuePair;
 
 public class Math {
+	
+	public static final double PI = 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679;
 
-	public static Double avgD(List<Double> values) {
+	public static Double avg(List<Number> values) {
 		double avg = 0;
 		double sum = 0;
 		int count = 0;
@@ -30,35 +32,11 @@ public class Math {
 		return avg;
 	}
 	
-	public static Double avgI(List<Integer> values) {
-		double avg = 0;
-		Integer sum = 0;
-		int count = 0;
-		
-		if(values.isEmpty())
-			return null;
-		
-		while(values.hasNext()) {
-			Integer n = (Integer) values.getNext();
-			if(n == null)
-				continue;
-			
-			sum += n;
-			count++;
-		}
-		
-		if(count == 0)
-			return 0d;
-		
-		avg = (double) sum / (double) count;
-		return avg;
-	}
-	
-	public static ValuePair<Double> avgI(PairList<Integer> values) {
+	public static ValuePair<Double> avg(PairList<Number> values) {
 		double avgX = 0;
 		double avgY = 0;
-		Integer sumX = 0;
-		Integer sumY = 0;
+		Double sumX = 0d;
+		Double sumY = 0d;
 		int count = 0;
 		
 		if(values.isEmpty())
@@ -66,13 +44,13 @@ public class Math {
 		
 		while(values.hasNext()) {
 			@SuppressWarnings("unchecked")
-			ValuePair<Integer> next = (ValuePair<Integer>) values.getNext();
+			ValuePair<Number> next = (ValuePair<Number>) values.getNext();
 			
-			if(next.getX() == null && next.getX() == null)
+			if(next.getX() == null || next.getX() == null)
 				continue;
 			
-			sumX += next.getX();
-			sumY += next.getY();
+			sumX += (double) ((Number) next.getX()).intValue();
+			sumY += (double) ((Number) next.getY()).intValue();
 			count++;
 		}
 		
@@ -82,33 +60,6 @@ public class Math {
 		avgX = (double) sumX / (double) count;
 		avgY = (double) sumY / (double) count;
 		return new ValuePair<Double>(avgX, avgY);
-	}
-	
-	public static Double stddevI(List<Integer> values) {
-		double stddev = 0;
-		double avg = avgI(values);
-		int count = 0;
-		
-		if(values.length < 2)
-			return null;
-		
-		while(values.hasNext()) {
-			Integer n = (Integer) values.getNext();
-			if(n == null)
-				continue;
-			
-			double next = n - avg;
-			stddev += next * next;
-			count++;
-		}
-		
-		if(count < 2)
-			return null;
-		
-		stddev = stddev / (count - 1);
-		stddev = java.lang.Math.sqrt(stddev);
-		
-		return stddev;
 	}
 	
 	public static int getSum(List<Integer> values) {
@@ -123,9 +74,9 @@ public class Math {
 		return sum;
 	}
 	
-	public static Double stddevD(List<Double> values) {
+	public static Double stddev(List<Number> values) {
 		double stddev = 0;
-		double avg = avgD(values);
+		double avg = avg(values);
 		int count = 0;
 		
 		if(values.length < 2)

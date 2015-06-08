@@ -12,7 +12,7 @@ public class Aufgabe4A {
 		ProjectDataManager manager = new ProjectDataManager();
 		List<ProjectData> testdata = manager.getTestdata_4a();
 		
-		PairList<Integer> t1 = new PairList<Integer>();
+		PairList<Number> t1 = new PairList<Number>();
 		while(testdata.hasNext()) {
 			ProjectData next = (ProjectData) testdata.getNext();
 			t1.add(next.getEOLOC(), next.getANCLOC());
@@ -21,7 +21,7 @@ public class Aufgabe4A {
 		System.out.println("T1: ß0 = " + r1.getB0() + " | ß1 = " + r1.getB1());
 		
 		
-		PairList<Integer> t2 = new PairList<Integer>();
+		PairList<Number> t2 = new PairList<Number>();
 		while(testdata.hasNext()) {
 			ProjectData next = (ProjectData) testdata.getNext();
 			t2.add(next.getENCLOC(), next.getANCLOC());
@@ -31,7 +31,7 @@ public class Aufgabe4A {
 		
 		testdata = manager.getActualdata_4a();
 		
-		PairList<Integer> t3 = new PairList<Integer>();
+		PairList<Number> t3 = new PairList<Number>();
 		while(testdata.hasNext()) {
 			ProjectData next = (ProjectData) testdata.getNext();
 			t3.add(next.getENCLOC(), next.getANCLOC());

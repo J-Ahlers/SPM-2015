@@ -5,13 +5,13 @@ import list.ValuePair;
 
 public class RegressionCalculator {
 	
-	private PairList<Integer> project;
+	private PairList<Number> project;
 	
 	public RegressionCalculator() {
-		this.project = new PairList<Integer>();
+		this.project = new PairList<Number>();
 	}
 	
-	public RegressionCalculator(PairList<Integer> project) {
+	public RegressionCalculator(PairList<Number> project) {
 		this.project = project;
 	}
 	
@@ -24,7 +24,7 @@ public class RegressionCalculator {
 		int xx = 0;
 		int count = 0;		
 		
-		ValuePair<Double> avg = Math.avgI(this.project);
+		ValuePair<Double> avg = Math.avg(this.project);
 		while(this.project.hasNext()) {
 			@SuppressWarnings("unchecked")
 			ValuePair<Integer> next = (ValuePair<Integer>) this.project.getNext();
@@ -42,7 +42,7 @@ public class RegressionCalculator {
 	}
 	
 	public double getB0() {
-		ValuePair<Double> avg = Math.avgI(this.project);
+		ValuePair<Double> avg = Math.avg(this.project);
 		return avg.getY() - getB1() * avg.getX();
 	}
 	

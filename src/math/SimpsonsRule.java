@@ -50,19 +50,14 @@ public class SimpsonsRule {
 			x_low = 0f;
 			offset = 1f;
 		}
-		else if(x_high > 0) {
+		else if(x_high > 0 && x_low < 0) {
 			x_low = 0f;
-			offset = 0.5f;
+			offset = 0.5f - (new SimpsonsRule(function, null, x_low, E).compute());
 		}
 		else if (x_high < 0) {
 			x_high = java.lang.Math.abs(x_low);
 			x_low = 0f;
 			factor = -1f;
-		}
-		else {
-			x_low = 0f;
-			x_high = 0f;
-			offset = 0.5f;
 		}
 	}
 	
