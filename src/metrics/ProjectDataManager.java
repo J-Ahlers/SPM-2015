@@ -55,12 +55,14 @@ public class ProjectDataManager {
 		ProjectData a03 = new ProjectData(null, 100, 85, 67, 95);
 		ProjectData a04 = new ProjectData(378, 239, 156, 358, 190);
 		ProjectData a05 = new ProjectData(204, 204, 115, 99, 182);
+		ProjectData a06 = new ProjectData(134, 114, 169, 124, 210);
 		
 		this.exercisedata.add(a01);
 		this.exercisedata.add(a02);
 		this.exercisedata.add(a03);
 		this.exercisedata.add(a04);
 		this.exercisedata.add(a05);
+		this.exercisedata.add(a06);
 	}
 	
 	public List<ProjectData> getTestdata_4a() {

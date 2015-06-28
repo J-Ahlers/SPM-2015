@@ -10,7 +10,7 @@ import metrics.ProjectDataManager;
 public class Aufgabe6A {
 
 	public static void main(String[] args) {
-		int estimatedObjectLOC = 386;
+		int estimatedObjectLOC = 127;
 		RangeCalculator rc = new RangeCalculator();
 		ProjectDataManager manager = new ProjectDataManager();
 		List<ProjectData> data = manager.getExerciseData();

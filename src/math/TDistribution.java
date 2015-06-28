@@ -4,9 +4,12 @@ public class TDistribution  implements Function {
 
 	private float n;
 	
-	@SuppressWarnings("unused")
-	private TDistribution(){}
+	protected TDistribution(){}
 	
+	/**
+	 * 
+	 * @param n number of items (values) used in the calculation
+	 */
 	public TDistribution(int n) {
 		this.n = (float) n;
 //		double top = Math.gamma( (n + 1) / 2 );
@@ -19,9 +22,9 @@ public class TDistribution  implements Function {
 	
 	@Override
 	public float calculate(float x) {
-		float term1 = (float) ((Math.gamma( (n + 1) / 2 )) / ( java.lang.Math.sqrt(n * Math.PI) * Math.gamma(((double) n) / 2)  ));
+		float term1 = (float) ((Math.gamma( (n + 1) / 2f )) / ( java.lang.Math.sqrt(n * Math.PI) * Math.gamma(n / 2f)  ));
 		float term2 = 1 + ((x * x) / n);
-		float term3 = (float) java.lang.Math.pow( term2 , -0.5 * (n + 1));
+		float term3 = (float) java.lang.Math.pow( term2 , -0.5 * (n + 1d));
 		float Fi = term1 * term3;
 //		System.out.println("xi: " + x +" , term1: " + term2 + " , term2: " + term3 + " , F(xi): " + Fi);
 		return Fi;

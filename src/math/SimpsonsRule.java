@@ -5,17 +5,24 @@ public class SimpsonsRule {
 	private Float x_low;
 	private Float x_high;
 	private float E;
-	public static final int N = 20;
-	private int currentN;
+	public static final float N = 20f;
+	private float currentN;
 	private float offset;
-	private float factor = 1;
+	private float factor = 1f;
 	private Function function;
 	
-	public SimpsonsRule(Function function, Float x_low, Float x_high, float E) {
+	/**
+	 * 
+	 * @param function
+	 * @param x_low lower boundary
+	 * @param x_high upper boundary
+	 * @param error max error margin
+	 */
+	public SimpsonsRule(Function function, Float x_low, Float x_high, float error) {
 		this.function = function;
 		this.x_low = x_low;
 		this.x_high = x_high;
-		this.E = E;
+		this.E = error;
 		this.currentN = N;
 		adjustBonds();
 	}
