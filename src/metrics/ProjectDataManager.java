@@ -56,6 +56,7 @@ public class ProjectDataManager {
 		ProjectData a04 = new ProjectData(378, 239, 156, 358, 190);
 		ProjectData a05 = new ProjectData(204, 204, 115, 99, 182);
 		ProjectData a06 = new ProjectData(134, 114, 169, 124, 210);
+		ProjectData a07 = new ProjectData(133, 114, 89, 128, 140);
 		
 		this.exercisedata.add(a01);
 		this.exercisedata.add(a02);
@@ -63,6 +64,7 @@ public class ProjectDataManager {
 		this.exercisedata.add(a04);
 		this.exercisedata.add(a05);
 		this.exercisedata.add(a06);
+		this.exercisedata.add(a07);
 	}
 	
 	public List<ProjectData> getTestdata_4a() {
