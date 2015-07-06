@@ -65,8 +65,10 @@ public class Aufgabe8A {
 			if(next == null)
 				continue;
 			
-			Number tmp = (Number) next.getFirst();
-			System.out.println(tmp.intValue());
+			Number tmp = (Number) next.get(0);
+			System.out.print(tmp.intValue()+", ");
+			tmp = (Number) next.get(1);
+			System.out.println(tmp.doubleValue());
 		}
 		
 		System.out.println("\n\nTest row 1:");
@@ -76,7 +78,9 @@ public class Aufgabe8A {
 			if(next == null)
 				continue;
 			
-			Number tmp = (Number) next.get(1);
+			Number tmp = (Number) next.get(0);
+			System.out.print(tmp.intValue()+", ");
+			tmp = (Number) next.get(1);
 			System.out.println(tmp.doubleValue());
 		}
 
