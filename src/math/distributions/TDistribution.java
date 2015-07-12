@@ -1,4 +1,7 @@
-package math;
+package math.distributions;
+
+import math.Function;
+import math.Math;
 
 public class TDistribution  implements Function {
 

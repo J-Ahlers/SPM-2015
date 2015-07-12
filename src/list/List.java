@@ -76,4 +76,17 @@ public class List<T> {
 	public boolean isEmpty() {
 		return this.elements == null;
 	}
+	
+	public void print() {
+		System.out.print("{");
+		while(hasNext()) {
+			Number n = (Number) getNext();
+			if(n == null) {
+				System.out.print("null, ");
+				continue;
+			}
+			System.out.print(n.doubleValue() + ", ");
+		}
+		System.out.println("}");
+	}
 }

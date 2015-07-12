@@ -1,7 +1,7 @@
 package main;
 
-import math.NormalDistribution;
 import math.SimpsonsRule;
+import math.distributions.NormalDistribution;
 
 public class Aufgabe5A {
 

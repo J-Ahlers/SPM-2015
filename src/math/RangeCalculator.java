@@ -2,6 +2,7 @@ package math;
 
 import list.PairList;
 import list.ValuePair;
+import math.distributions.TDistribution;
 
 public class RangeCalculator {
 

@@ -1,6 +1,7 @@
 package math;
 
 import list.PairList;
+import math.distributions.TDistribution;
 
 public class SignificanceCalculator {
 	
