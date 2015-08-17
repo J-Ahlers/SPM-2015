@@ -59,8 +59,8 @@ public class ProjectDataManager {
 		ProjectData a07 = new ProjectData(133, 128, 89, 142, 140);
 		ProjectData a08 = new ProjectData(127, 122, 134, 140, 108);
 		
-		this.exercisedata.add(a01);
-		this.exercisedata.add(a02);
+		//this.exercisedata.add(a01);
+		//this.exercisedata.add(a02);
 		this.exercisedata.add(a03);
 		this.exercisedata.add(a04);
 		this.exercisedata.add(a05);

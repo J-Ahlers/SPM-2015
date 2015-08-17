@@ -8,7 +8,7 @@ import math.distributions.X2Distribution;
 
 public class DistributionDegreeCalculator {
 
-	public double calculateDegree(List<List<Number>> list, int index) {
+	public float calculateDegree(List<List<Number>> list, int index) {
 		// Extract the desired dataset
 		List<Number> values = new List<Number>();
 		while(list.hasNext()) {
@@ -21,32 +21,32 @@ public class DistributionDegreeCalculator {
 		return calculateDegree(values);
 	}
 	
-	public double calculateDegree(List<Number> list) {
+	public float calculateDegree(List<Number> list) {
 		if(list.length < 15)
-			return 0d;
+			return 0f;
 		
 		// Sort list (is needed later on)
 		list = ListSort.sort(list);
 		//list.print();
 		
 		// 1. Calculating the average
-		double avg = Math.avg(list);
+		float avg = Math.avg(list);
 		//System.out.println("avg: " + avg);
 		
 		// 2. Calculating the variance
-		double o2 = 0d;
+		float o2 = 0f;
 		while(list.hasNext()) {
 			Number n = (Number) list.getNext();
 			if(n == null)
 				continue;
 			
-			o2 += (n.doubleValue() - avg) * (n.doubleValue() - avg);
+			o2 += (n.floatValue() - avg) * (n.floatValue() - avg);
 		}
-		o2 = o2 / ((double) list.length - 1d);
+		o2 = o2 / ((float) list.length - 1f);
 		
 		
 		// 3. Calculating o
-		double o = java.lang.Math.sqrt(o2);
+		float o = (float) java.lang.Math.sqrt(o2);
 		//System.out.println("o: " + o);
 		
 		// 4. Normalizing the list
@@ -56,7 +56,7 @@ public class DistributionDegreeCalculator {
 			if(n == null)
 				continue;
 			
-			z.add((n.doubleValue() - avg) / o);
+			z.add((n.floatValue() - avg) / o);
 		}
 		z = ListSort.sort(z);
 		//z.print();
@@ -64,23 +64,23 @@ public class DistributionDegreeCalculator {
 		
 		
 		// 6. Determine segments (guaranteeing an 'integer')
-		double s = java.lang.Math.sqrt(list.length);
+		float s = (float) java.lang.Math.sqrt(list.length);
 		if(s < 3) {
-			s = 3d;
+			s = 3f;
 		} else {
 			// ceil s
 			int tmp = (int) (s + 1);
-			s = (double) tmp;
+			s = (float) tmp;
 		}
 		// For debug purposes
-		s = 10d;
+		s = 10f;
 		
 		// 7. Construct segments
 		List<Number> segments = new List<Number>();
-		double limit = 0;
+		float limit = 0;
 		for(int i = 0; i < s - 1; i++) {
 			limit += 1d / s;
-			double tmpsegmentlimit = getSegment(limit);
+			float tmpsegmentlimit = getSegment(limit);
 			//System.out.println("seglimit: " + tmpsegmentlimit);
 			segments.add(tmpsegmentlimit);
 		}
@@ -88,12 +88,12 @@ public class DistributionDegreeCalculator {
 		
 		// 8. Determining actual population of the segments
 		List<Number> segmentpopulation = new List<Number>();
-		Double upperlimit = null;
-		Double lowerlimit = null;
+		Float upperlimit = null;
+		Float lowerlimit = null;
 		while(segments.hasNext()) {
 			// get current segment (upper limit)
 			Number seg = (Number) segments.getNext();
-			upperlimit = seg.doubleValue();
+			upperlimit = seg.floatValue();
 			
 			int count = 0;
 			while(z.hasNext()) {
@@ -101,7 +101,7 @@ public class DistributionDegreeCalculator {
 				if(n == null)
 					continue;
 				
-				double zi = n.doubleValue();
+				float zi = n.floatValue();
 				
 				if(lowerlimit == null && zi <= upperlimit) {
 					count++;
@@ -124,7 +124,7 @@ public class DistributionDegreeCalculator {
 		while(z.hasNext()) {
 			Number n = (Number) z.getNext();
 			
-			double zi = n.doubleValue();
+			float zi = n.floatValue();
 			
 			if(upperlimit != null && zi > upperlimit) {
 				finalcount++;
@@ -136,27 +136,27 @@ public class DistributionDegreeCalculator {
 		//segmentpopulation.print();
 		
 		// 9. Calculating q
-		double q = 0;
-		double ni = (double) list.length / (double) segmentpopulation.length;
+		float q = 0;
+		float ni = (float) list.length / (float) segmentpopulation.length;
 		while(segmentpopulation.hasNext()) {
 			Number n = (Number) segmentpopulation.getNext();
 			if(n == null)
 				continue;
 			
-			double ki = n.doubleValue();
+			float ki = n.floatValue();
 			q += ((ni - ki) * (ni - ki)) / ni;
 		}
 		System.out.println("Q: " + q);
 		
 		// 10. + 11.
 		SimpsonsRule r = new SimpsonsRule(new X2Distribution((int) s - 1), 0f, (float) q, 0.00001f);
-		double p = r.compute();
+		float p = r.compute();
 		//System.out.println(p);
 		return 1 - p;
 	}
 	
-	private double getSegment(double size) {
-		double currentPrecision = 0.0f;
+	private float getSegment(double size) {
+		float currentPrecision = 0.0f;
 		float currentValue = -10.0f;
 		while(currentPrecision < size) {
 			currentValue += 0.001f;

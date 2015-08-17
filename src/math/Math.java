@@ -9,10 +9,10 @@ public class Math {
 	public static final double PI = 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679;
 	public static final double E = 2.71828182845904523536028747135266249775724709369995;
 
-	public static Double avg(List<Number> values) {
-		double avg = 0;
-		double sum = 0;
-		double count = 0;
+	public static Float avg(List<Number> values) {
+		float avg = 0;
+		float sum = 0;
+		float count = 0;
 		
 		if(values.isEmpty())
 			return null;
@@ -27,17 +27,17 @@ public class Math {
 		}
 		
 		if(count == 0)
-			return 0d;
+			return 0f;
 		
 		avg = sum / count;
 		return avg;
 	}
 	
-	public static ValuePair<Double> avg(PairList<Number> values) {
-		double avgX = 0;
-		double avgY = 0;
-		Double sumX = 0d;
-		Double sumY = 0d;
+	public static ValuePair<Float> avg(PairList<Number> values) {
+		float avgX = 0f;
+		float avgY = 0f;
+		Float sumX = 0f;
+		Float sumY = 0f;
 		int count = 0;
 		
 		if(values.isEmpty())
@@ -50,17 +50,17 @@ public class Math {
 			if(next.getX() == null || next.getX() == null)
 				continue;
 			
-			sumX += (double) ((Number) next.getX()).intValue();
-			sumY += (double) ((Number) next.getY()).intValue();
+			sumX += next.getX().floatValue();
+			sumY += next.getY().floatValue();
 			count++;
 		}
 		
 		if(count == 0)
-			return new ValuePair<Double>(0d, 0d);
+			return new ValuePair<Float>(0f, 0f);
 		
-		avgX = (double) sumX / (double) count;
-		avgY = (double) sumY / (double) count;
-		return new ValuePair<Double>(avgX, avgY);
+		avgX = (float) sumX / (float) count;
+		avgY = (float) sumY / (float) count;
+		return new ValuePair<Float>(avgX, avgY);
 	}
 	
 	public static int getSum(List<Integer> values) {
@@ -75,20 +75,20 @@ public class Math {
 		return sum;
 	}
 	
-	public static Double stddev(List<Number> values) {
-		double stddev = 0;
-		double avg = avg(values);
+	public static Float stddev(List<Number> values) {
+		float stddev = 0;
+		float avg = avg(values);
 		int count = 0;
 		
 		if(values.length < 2)
 			return null;
 		
 		while(values.hasNext()) {
-			Double n = (Double) values.getNext();
+			Float n = values.getNext().floatValue();
 			if(n == null)
 				continue;
 			
-			double next = n - avg;
+			float next = n - avg;
 			stddev += next * next;
 			count++;
 		}
@@ -97,18 +97,18 @@ public class Math {
 			return null;
 		
 		stddev = stddev / (values.length - 1);
-		stddev = java.lang.Math.sqrt(stddev);
+		stddev = (float) java.lang.Math.sqrt(stddev);
 		
 		return stddev;
 	}
 	
-	public static double gamma(double x) {
+	public static float gamma(float x) {
 		// Additional ending criteria x < 0.5 in order to guarantee a finite function
 		if(x == 1.0d || x < 0.5)
 			return 1;
 		else if(x == 0.5)
-			return java.lang.Math.sqrt(PI);
+			return (float) java.lang.Math.sqrt(PI);
 		else
-			return (x - 1d) * gamma(x - 1d);
+			return (x - 1f) * gamma(x - 1f);
 	}
 }

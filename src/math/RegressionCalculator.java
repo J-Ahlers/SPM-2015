@@ -19,12 +19,12 @@ public class RegressionCalculator {
 		this.project.add(x, y);
 	}
 	
-	public double getB1() {
+	public float getB1() {
 		int xy = 0;
 		int xx = 0;
 		int count = 0;		
 		
-		ValuePair<Double> avg = Math.avg(this.project);
+		ValuePair<Float> avg = Math.avg(this.project);
 		while(this.project.hasNext()) {
 			@SuppressWarnings("unchecked")
 			ValuePair<Integer> next = (ValuePair<Integer>) this.project.getNext();
@@ -41,8 +41,8 @@ public class RegressionCalculator {
 		return ( xy - this.project.length * avg.getX() * avg.getY() ) / ( xx - count * avg.getX() * avg.getX() );
 	}
 	
-	public double getB0() {
-		ValuePair<Double> avg = Math.avg(this.project);
+	public float getB0() {
+		ValuePair<Float> avg = Math.avg(this.project);
 		return avg.getY() - getB1() * avg.getX();
 	}
 	
