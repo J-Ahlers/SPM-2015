@@ -10,7 +10,7 @@ import metrics.ProjectDataManager;
 public class Aufgabe6A {
 
 	public static void main(String[] args) {
-		int estimatedObjectLOC = 137;
+		int estimatedObjectLOC = 197;
 		
 		ProjectDataManager manager = new ProjectDataManager();
 		

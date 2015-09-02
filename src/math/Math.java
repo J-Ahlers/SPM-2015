@@ -22,7 +22,7 @@ public class Math {
 			if(n == null)
 				continue;
 			
-			sum += n.doubleValue();
+			sum += n.floatValue();
 			count++;
 		}
 		
@@ -63,14 +63,14 @@ public class Math {
 		return new ValuePair<Float>(avgX, avgY);
 	}
 	
-	public static int getSum(List<Integer> values) {
-		int sum = 0;
+	public static Float getSum(List<Number> values) {
+		float sum = 0f;
 		while(values.hasNext()) {
-			Integer n = (Integer) values.getNext();
+			Number n = values.getNext();
 			if(n == null)
 				continue;
 			
-			sum += n;
+			sum += n.floatValue();
 		}
 		return sum;
 	}

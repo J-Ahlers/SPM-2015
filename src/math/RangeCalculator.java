@@ -53,7 +53,7 @@ public class RangeCalculator {
 		return sum / ((float) count - 2);
 	}
 	
-	private float getAlpha(int n, float precision) {
+	public static float getAlpha(int n, float precision) {
 		float currentPrecision = 0.0f;
 		float currentValue = 0.0f;
 		while(currentPrecision < precision) {
